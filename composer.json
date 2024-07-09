@@ -1,0 +1,16 @@
+{
+	"name": "netliva/e-invoice-ubl",
+	"license": "MIT",
+	"type": "library",
+	"description": "E-Fatura Ubl Xml Oluşturucu ve Dönüştürücü",
+	"autoload": {
+		"psr-4": {
+			"Netliva\\EInvoiceUbl\\": "src/"
+		}
+	},
+	"require": {
+		"php": ">=7.0",
+	},
+	"minimum-stability": "stable",
+	"prefer-stable" : true
+}
