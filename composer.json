@@ -5,7 +5,7 @@
 	"description": "E-Fatura Ubl Xml Oluşturucu ve Dönüştürücü",
 	"autoload": {
 		"psr-4": {
-			"Netliva\\EInvoiceUbl\\": "src/"
+			"Netliva\\eInvoiceUBL\\": "src/"
 		}
 	},
 	"require": {
