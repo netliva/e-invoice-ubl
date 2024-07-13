@@ -33,6 +33,8 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractComplexType;
  * @property PaymentTerms $PaymentTerms
  * @property OriginatorDocumentReference $OriginatorDocumentReference
  * @property PaymentAlternativeExchangeRate $PaymentAlternativeExchangeRate
+ * @property PaymentExchangeRate $PaymentExchangeRate
+ * @property TaxExchangeRate $TaxExchangeRate
  * @property InvoicePeriod $InvoicePeriod
  * @property TaxRepresentativeParty $TaxRepresentativeParty
  * @property InvoiceLine[] $InvoiceLine
@@ -186,6 +188,16 @@ class Invoice extends AbstractComplexType
     public function setPaymentAlternativeExchangeRate(?PaymentAlternativeExchangeRate $PaymentAlternativeExchangeRate)
     {
         $this->values['PaymentAlternativeExchangeRate'] = $PaymentAlternativeExchangeRate;
+        return $this;
+    }
+    public function setTaxExchangeRate(?TaxExchangeRate $TaxExchangeRate)
+    {
+        $this->values['TaxExchangeRate'] = $TaxExchangeRate;
+        return $this;
+    }
+    public function setPaymentExchangeRate(?PaymentExchangeRate $PaymentExchangeRate)
+    {
+        $this->values['PaymentExchangeRate'] = $PaymentExchangeRate;
         return $this;
     }
     public function setInvoicePeriod(?InvoicePeriod $InvoicePeriod)
