@@ -14,7 +14,7 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractValueWithAttr;
  * @property ReceiptLineReference $ReceiptLineReference
  * @property Delivery $Delivery
  * @property AbstractValueWithAttr $LineExtensionAmount
- * @property AllowanceCharge $AllowanceCharge
+ * @property AllowanceCharge[] $AllowanceCharge
  * @property TaxTotal $TaxTotal
  * @property WithholdingTaxTotal $WithholdingTaxTotal
  * @property Item $Item
@@ -23,6 +23,23 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractValueWithAttr;
  */
 class InvoiceLine extends AbstractComplexType
 {
+    protected $values = [
+        'ID'                    => null,
+        'Note'                  => null,
+        'InvoicedQuantity'      => null,
+        'OrderLineReference'    => null,
+        'DespatchLineReference' => null,
+        'ReceiptLineReference'  => null,
+        'Delivery'              => null,
+        'LineExtensionAmount'   => null,
+        'AllowanceCharge'       => null,
+        'TaxTotal'              => null,
+        'WithholdingTaxTotal'   => null,
+        'Item'                  => null,
+        'Price'                 => null,
+        'SubInvoiceLine'        => null,
+    ];
+
     /**
      *  Kalem sıra numarası girilir.
      */
@@ -99,7 +116,7 @@ class InvoiceLine extends AbstractComplexType
     /**
      * Kalem bazlı ıskonto/artırım tutarıdır.
      */
-    public function setAllowanceCharge(?AllowanceCharge $AllowanceCharge)
+    public function setAllowanceCharge(?array $AllowanceCharge)
     {
         $this->values['AllowanceCharge'] = $AllowanceCharge;
         return $this;

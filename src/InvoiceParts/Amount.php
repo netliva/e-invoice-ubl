@@ -1,11 +1,11 @@
 <?php
 namespace Netliva\eInvoiceUBL\InvoiceParts;
 
-use Netliva\eInvoiceUBL\Abstracts\XMLCustomAttr;
+use Netliva\eInvoiceUBL\Abstracts\AbstractFloatWithAttr;
 
 /**
  * Tutar Bilgisi
  */
-class Amount extends XMLCustomAttr
+class Amount extends AbstractFloatWithAttr
 {
 }

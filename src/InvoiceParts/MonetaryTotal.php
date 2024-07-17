@@ -2,17 +2,17 @@
 namespace Netliva\eInvoiceUBL\InvoiceParts;
 
 use Netliva\eInvoiceUBL\Abstracts\AbstractComplexType;
-use Netliva\eInvoiceUBL\Abstracts\AbstractValueWithAttr;
+use Netliva\eInvoiceUBL\Abstracts\AbstractFloatWithAttr;
 
 /**
  * Parasal toplamlar ile genel tutarların girildiği elemandır
- * @property AbstractValueWithAttr $LineExtensionAmount
- * @property AbstractValueWithAttr $TaxExclusiveAmount
- * @property AbstractValueWithAttr $TaxInclusiveAmount
- * @property AbstractValueWithAttr $AllowanceTotalAmount
- * @property AbstractValueWithAttr $ChargeTotalAmount
- * @property AbstractValueWithAttr $PayableRoundingAmount
- * @property AbstractValueWithAttr $PayableAmount
+ * @property AbstractFloatWithAttr $LineExtensionAmount
+ * @property AbstractFloatWithAttr $TaxExclusiveAmount
+ * @property AbstractFloatWithAttr $TaxInclusiveAmount
+ * @property AbstractFloatWithAttr $AllowanceTotalAmount
+ * @property AbstractFloatWithAttr $ChargeTotalAmount
+ * @property AbstractFloatWithAttr $PayableRoundingAmount
+ * @property AbstractFloatWithAttr $PayableAmount
  */
 class MonetaryTotal extends AbstractComplexType
 {
@@ -20,7 +20,7 @@ class MonetaryTotal extends AbstractComplexType
      * Mal/hizmet miktarı ile Mal/hizmet birim fiyatının çarpımı ile bulunan tutardır.
      * [val => "string", attrs=> [currencyID=>"TRY"] ]
      */
-    public function setLineExtensionAmount(?AbstractValueWithAttr $LineExtensionAmount)
+    public function setLineExtensionAmount(?AbstractFloatWithAttr $LineExtensionAmount)
     {
         $this->values['LineExtensionAmount'] = $LineExtensionAmount;
         return $this;
@@ -30,7 +30,7 @@ class MonetaryTotal extends AbstractComplexType
      * Vergiler hariç, ıskonto veya artırım dahil toplam tutar girilir.(Vergi Matrahı).
      * [val => "string", attrs=> [currencyID=>"TRY"] ]
      */
-    public function setTaxExclusiveAmount(?AbstractValueWithAttr $TaxExclusiveAmount)
+    public function setTaxExclusiveAmount(?AbstractFloatWithAttr $TaxExclusiveAmount)
     {
         $this->values['TaxExclusiveAmount'] = $TaxExclusiveAmount;
         return $this;
@@ -40,7 +40,7 @@ class MonetaryTotal extends AbstractComplexType
      * Vergiler, ıskonto ve artırım dahil toplam tutar girilir.
      * [val => "string", attrs=> [currencyID=>"TRY"] ]
      */
-    public function setTaxInclusiveAmount(?AbstractValueWithAttr $TaxInclusiveAmount)
+    public function setTaxInclusiveAmount(?AbstractFloatWithAttr $TaxInclusiveAmount)
     {
         $this->values['TaxInclusiveAmount'] = $TaxInclusiveAmount;
         return $this;
@@ -50,7 +50,7 @@ class MonetaryTotal extends AbstractComplexType
      * Toplam ıskonto tutarı girilir.
      * [val => "string", attrs=> [currencyID=>"TRY"] ]
      */
-    public function setAllowanceTotalAmount(?AbstractValueWithAttr $AllowanceTotalAmount)
+    public function setAllowanceTotalAmount(?AbstractFloatWithAttr $AllowanceTotalAmount)
     {
         $this->values['AllowanceTotalAmount'] = $AllowanceTotalAmount;
         return $this;
@@ -60,7 +60,7 @@ class MonetaryTotal extends AbstractComplexType
      * Toplam fiyat artırımı tutarı girilir.
      * [val => "string", attrs=> [currencyID=>"TRY"] ]
      */
-    public function setChargeTotalAmount(?AbstractValueWithAttr $ChargeTotalAmount)
+    public function setChargeTotalAmount(?AbstractFloatWithAttr $ChargeTotalAmount)
     {
         $this->values['ChargeTotalAmount'] = $ChargeTotalAmount;
         return $this;
@@ -70,7 +70,7 @@ class MonetaryTotal extends AbstractComplexType
      * Yuvarlama tutarı girilir.
      * [val => "string", attrs=> [currencyID=>"TRY"] ]
      */
-    public function setPayableRoundingAmount(?AbstractValueWithAttr $PayableRoundingAmount)
+    public function setPayableRoundingAmount(?AbstractFloatWithAttr $PayableRoundingAmount)
     {
         $this->values['PayableRoundingAmount'] = $PayableRoundingAmount;
         return $this;
@@ -80,7 +80,7 @@ class MonetaryTotal extends AbstractComplexType
      * Ödenecek tutar girilir.
      * [val => "string", attrs=> [currencyID=>"TRY"] ]
      */
-    public function setPayableAmount(?AbstractValueWithAttr $PayableAmount)
+    public function setPayableAmount(?AbstractFloatWithAttr $PayableAmount)
     {
         $this->values['PayableAmount'] = $PayableAmount;
         return $this;

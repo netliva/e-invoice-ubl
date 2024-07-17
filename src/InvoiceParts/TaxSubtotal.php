@@ -2,21 +2,34 @@
 namespace Netliva\eInvoiceUBL\InvoiceParts;
 
 use Netliva\eInvoiceUBL\Abstracts\AbstractComplexType;
+use Netliva\eInvoiceUBL\Abstracts\AbstractFloatWithAttr;
 use Netliva\eInvoiceUBL\Abstracts\AbstractValueWithAttr;
 
 /**
  * Vergi ve diğer yasal yükümlülüklerin hesaplaması ile ilgili bilgilere yer verilecektir
- * @property AbstractValueWithAttr $TaxableAmount
- * @property AbstractValueWithAttr $TaxAmount
+ * @property AbstractFloatWithAttr $TaxableAmount
+ * @property AbstractFloatWithAttr $TaxAmount
  * @property int $CalculationSequenceNumeric
- * @property AbstractValueWithAttr $TransactionCurrencyTaxAmount
+ * @property AbstractFloatWithAttr $TransactionCurrencyTaxAmount
  * @property int $Percent
- * @property AbstractValueWithAttr $BaseUnitMeasure
- * @property AbstractValueWithAttr $PerUnitAmount
+ * @property AbstractFloatWithAttr $BaseUnitMeasure
+ * @property AbstractFloatWithAttr $PerUnitAmount
  * @property TaxCategory $TaxCategory
  */
 class TaxSubtotal extends AbstractComplexType
 {
+    protected $values = [
+        'TaxableAmount'                => null,
+        'TaxAmount'                    => null,
+        'CalculationSequenceNumeric'   => null,
+        'TransactionCurrencyTaxAmount' => null,
+        'Percent'                      => null,
+        'BaseUnitMeasure'              => null,
+        'PerUnitAmount'                => null,
+        'TaxCategory'                  => null,
+    ];
+
+
     /**
      * Verginin üzerinden hesaplandığı tutar (matrah) bilgisi girilecektir.
      * [val => "string", attrs=> [currencyID=>"TRY"] ]

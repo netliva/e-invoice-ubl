@@ -45,39 +45,42 @@ class XMLHelper
         foreach ($data as $key => $val) {
             if (is_array($val))
             {
-                if (is_numeric(current(array_keys($val))))
+                if (count($val))
                 {
-                    foreach ($val as $v)
+                    if (is_numeric(current(array_keys($val))))
                     {
-                        if (is_array($v) && !is_numeric(current(array_keys($v))))
+                        foreach ($val as $v)
                         {
-                            $xml .= str_repeat("\t", $deep).'<cac:'.$key.'>'."\n";
-                            $this->makeXml($v, $xml, $deep+1);
-                            $xml .= str_repeat("\t", $deep).'</cac:'.$key.'>'."\n";
-                        }
-                        else
-                        {
-                            $xml .= str_repeat("\t", $deep).'<cbc:'.$key.'>'.$v.'</cbc:'.$key.'>'."\n";
+                            if (is_array($v) && !is_numeric(current(array_keys($v))))
+                            {
+                                $xml .= str_repeat("\t", $deep).'<cac:'.$key.'>'."\n";
+                                $this->makeXml($v, $xml, $deep+1);
+                                $xml .= str_repeat("\t", $deep).'</cac:'.$key.'>'."\n";
+                            }
+                            else
+                            {
+                                $xml .= str_repeat("\t", $deep).'<cbc:'.$key.'>'.$v.'</cbc:'.$key.'>'."\n";
+                            }
                         }
                     }
-                }
-                else if(key_exists('value', $val))
-                {
-                    $attrs = [];
-                    if (key_exists('attrs', $val))
+                    else if(key_exists('value', $val))
                     {
-                        foreach ($val['attrs'] as $attrKey=>$attrVal)
+                        $attrs = [];
+                        if (key_exists('attrs', $val))
                         {
-                            $attrs[] = $attrKey.'="'.$attrVal.'"';
+                            foreach ($val['attrs'] as $attrKey=>$attrVal)
+                            {
+                                $attrs[] = $attrKey.'="'.$attrVal.'"';
+                            }
                         }
+                        $xml .= str_repeat("\t", $deep).'<cbc:'.$key.' '.implode(' ', $attrs).'>'.$val['value'].'</cbc:'.$key.'>'."\n";
                     }
-                    $xml .= str_repeat("\t", $deep).'<cbc:'.$key.' '.implode(' ', $attrs).'>'.$val['value'].'</cbc:'.$key.'>'."\n";
-                }
-                else
-                {
-                    $xml .= str_repeat("\t", $deep).'<cac:'.$key.'>'."\n";
-                    $this->makeXml($val, $xml, $deep+1);
-                    $xml .= str_repeat("\t", $deep).'</cac:'.$key.'>'."\n";
+                    else
+                    {
+                        $xml .= str_repeat("\t", $deep).'<cac:'.$key.'>'."\n";
+                        $this->makeXml($val, $xml, $deep+1);
+                        $xml .= str_repeat("\t", $deep).'</cac:'.$key.'>'."\n";
+                    }
                 }
             }
             elseif (!is_null($val))

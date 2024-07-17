@@ -23,10 +23,11 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractComplexType;
  * @property Signature $Signature
  * @property AccountingSupplierParty $AccountingSupplierParty
  * @property AccountingCustomerParty $AccountingCustomerParty
- * @property PaymentMeans $PaymentMeans
+ * @property PaymentMeans[] $PaymentMeans
  * @property AllowanceCharge $AllowanceCharge
  * @property PricingExchangeRate $PricingExchangeRate
  * @property TaxTotal $TaxTotal
+ * @property WithholdingTaxTotal $WithholdingTaxTotal
  * @property LegalMonetaryTotal $LegalMonetaryTotal
  * @property BuyerCustomerParty $BuyerCustomerParty
  * @property Delivery $Delivery
@@ -42,8 +43,29 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractComplexType;
 class Invoice extends AbstractComplexType
 {
     protected $values = [
-        'UBLVersionID' => '2.1',
-        'CustomizationID' => 'TR1.2',
+        'UBLVersionID'                => '2.1',
+        'CustomizationID'             => 'TR1.2',
+        "ProfileID"                   => null,
+        "ID"                          => null,
+        "CopyIndicator"               => false,
+        "UUID"                        => null,
+        "IssueDate"                   => null,
+        "IssueTime"                   => null,
+        "InvoiceTypeCode"             => null,
+        "Note"                        => [],
+        "DocumentCurrencyCode"        => null,
+        "LineCountNumeric"            => null,
+        "BillingReference"            => [],
+        "AdditionalDocumentReference" => [],
+        "PaymentMeans"                => [],
+        "AccountingSupplierParty"     => null,
+        "AccountingCustomerParty"     => null,
+        "PricingExchangeRate"         => [],
+        "TaxTotal"                    => null,
+        "WithholdingTaxTotal"         => null,
+        "LegalMonetaryTotal"          => null,
+        "InvoiceLine"                 => [],
+
     ];
     public function setUBLVersionID(?string $UBLVersionID)
     {
@@ -140,7 +162,7 @@ class Invoice extends AbstractComplexType
         $this->values['AccountingCustomerParty'] = $AccountingCustomerParty;
         return $this;
     }
-    public function setPaymentMeans(?PaymentMeans $PaymentMeans)
+    public function setPaymentMeans(?array $PaymentMeans)
     {
         $this->values['PaymentMeans'] = $PaymentMeans;
         return $this;

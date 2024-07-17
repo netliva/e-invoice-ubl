@@ -12,6 +12,11 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractComplexType;
  */
 class TaxScheme extends AbstractComplexType
 {
+    protected $values = [
+        'ID'          => null,
+        'Name'        => null,
+        'TaxTypeCode' => null,
+    ];
     /**
      * Vergilendirme şemasının ID bilgisi girilir.
      */

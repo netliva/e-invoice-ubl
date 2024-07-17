@@ -4,7 +4,7 @@ namespace Netliva\eInvoiceUBL\InvoiceParts;
 use Netliva\eInvoiceUBL\Abstracts\AbstractComplexType;/**
  * @property string $WebsiteURI;
  * @property string $IndustryClassificationCode
- * @property PartyIdentification $PartyIdentification
+ * @property PartyIdentification[] $PartyIdentification
  * @property PartyName $PartyName
  * @property PostalAddress $PostalAddress
  * @property PostalAddress $PhysicalLocation
@@ -16,6 +16,15 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractComplexType;/**
  */
 class Party extends AbstractComplexType
 {
+    protected $values = [
+        "WebsiteURI"          => null,
+        'PartyIdentification' => null,
+        'PartyName'           => null,
+        "PostalAddress"       => null,
+        "PartyTaxScheme"      => null,
+        "Contact"             => null,
+        "AgentParty"          => null,
+    ];
 
     public function setWebsiteURI(?string $WebsiteURI)
     {
@@ -29,7 +38,7 @@ class Party extends AbstractComplexType
         return $this;
     }
 
-    public function setPartyIdentification(?PartyIdentification $PartyIdentification)
+    public function setPartyIdentification(?array $PartyIdentification)
     {
         $this->values['PartyIdentification'] = $PartyIdentification;
         return $this;
