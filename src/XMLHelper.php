@@ -6,7 +6,7 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractComplexType;
 
 class XMLHelper
 {
-    private AbstractComplexType $object;
+    private $object;
 
     private $namespaces = [
         'xmlns' => 'urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2',
