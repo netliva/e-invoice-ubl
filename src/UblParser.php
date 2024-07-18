@@ -4,7 +4,7 @@ namespace Netliva\eInvoiceUBL;
 
 class UblParser
 {
-    protected array $party = [
+    protected $party = [
         'WebsiteURI'          => null,
         'TaxID'               => null,
         'Name'                => null,
@@ -26,7 +26,7 @@ class UblParser
         ]
     ];
 
-    protected array $taxSubtotal = [
+    protected $taxSubtotal = [
         'TaxableAmount'              => null,
         'TaxableAmountCurrency'      => null,
         'TaxAmount'                  => null,
@@ -41,7 +41,7 @@ class UblParser
         ],
     ];
 
-    protected array $data = [
+    protected $data = [
         'UBLVersionID'         => null,
         'CustomizationID'      => null,
         'ProfileID'            => null,
@@ -116,7 +116,7 @@ class UblParser
         'InvoiceLines' => [],
     ];
 
-    protected array $item = [
+    protected $item = [
         'ID'                          => null,
         'InvoicedQuantity'            => null,
         'UnitCode'                    => null,
