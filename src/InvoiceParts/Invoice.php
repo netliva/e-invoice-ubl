@@ -60,7 +60,7 @@ class Invoice extends AbstractComplexType
         "PaymentMeans"                => [],
         "AccountingSupplierParty"     => null,
         "AccountingCustomerParty"     => null,
-        "PricingExchangeRate"         => [],
+        "PricingExchangeRate"         => null,
         "TaxTotal"                    => null,
         "WithholdingTaxTotal"         => null,
         "LegalMonetaryTotal"          => null,
