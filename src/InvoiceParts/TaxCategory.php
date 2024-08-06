@@ -12,6 +12,13 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractComplexType;
  */
 class TaxCategory extends AbstractComplexType
 {
+    protected $values = [
+        'Name'                   => null,
+        'TaxExemptionReasonCode' => null,
+        'TaxExemptionReason'     => null,
+        'TaxScheme'              => null,
+    ];
+
     /**
      * Vergi türü ismi girilebilecektir.
      */
