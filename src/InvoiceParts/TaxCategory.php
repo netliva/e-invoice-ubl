@@ -16,7 +16,6 @@ class TaxCategory extends AbstractComplexType
         'Name'                   => null,
         'TaxExemptionReasonCode' => null,
         'TaxExemptionReason'     => null,
-        'TaxScheme'              => null,
     ];
 
     /**
