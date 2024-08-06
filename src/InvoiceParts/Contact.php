@@ -15,6 +15,15 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractComplexType;
  */
 class Contact extends AbstractComplexType
 {
+    protected $values = [
+        'ID'             => null,
+        'Name'           => null,
+        'Telephone'      => null,
+        'Telefax'        => null,
+        'ElectronicMail' => null,
+        'Note'           => null,
+    ];
+
     /**
      * İrtibatın numara bilgisi yazılabilir.
      */
