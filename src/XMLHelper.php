@@ -40,6 +40,12 @@ class XMLHelper
         $this->object = $object;
     }
 
+    private function fixChar(string $text): string
+    {
+        // metin içindeki xml'de hata oluşturacak karakterleri düzelt. Örnek olarak & => &amp; gibi. Tüm sakıncalı karakterleri düzelt.
+        return htmlspecialchars($text, ENT_QUOTES | ENT_XML1, 'UTF-8');
+    }
+
     private function makeXml($data, &$xml, $deep = 1)
     {
         foreach ($data as $key => $val) {
@@ -59,7 +65,7 @@ class XMLHelper
                             }
                             else
                             {
-                                $xml .= str_repeat("\t", $deep).'<cbc:'.$key.'>'.$v.'</cbc:'.$key.'>'."\n";
+                                $xml .= str_repeat("\t", $deep).'<cbc:'.$key.'>'.$this->fixChar($v).'</cbc:'.$key.'>'."\n";
                             }
                         }
                     }
@@ -73,7 +79,7 @@ class XMLHelper
                                 $attrs[] = $attrKey.'="'.$attrVal.'"';
                             }
                         }
-                        $xml .= str_repeat("\t", $deep).'<cbc:'.$key.' '.implode(' ', $attrs).'>'.$val['value'].'</cbc:'.$key.'>'."\n";
+                        $xml .= str_repeat("\t", $deep).'<cbc:'.$key.' '.implode(' ', $attrs).'>'.$this->fixChar($val['value']).'</cbc:'.$key.'>'."\n";
                     }
                     else
                     {
@@ -90,7 +96,7 @@ class XMLHelper
                 else if ($val === '')
                     $xml .= str_repeat("\t", $deep).'<cbc:'.$key.' />'."\n";
                 else
-                    $xml .= str_repeat("\t", $deep).'<cbc:'.$key.'>'.$val.'</cbc:'.$key.'>'."\n";
+                    $xml .= str_repeat("\t", $deep).'<cbc:'.$key.'>'.$this->fixChar($val).'</cbc:'.$key.'>'."\n";
             }
         }
 
