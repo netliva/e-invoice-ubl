@@ -2,13 +2,14 @@
 namespace Netliva\eInvoiceUBL\InvoiceParts;
 
 use Netliva\eInvoiceUBL\Abstracts\AbstractComplexType;
+use Netliva\eInvoiceUBL\Abstracts\AbstractValueWithAttr;
 
 /**
  * Ödeme koşullarının girildiği elemandır
  * @property array $Note
  * @property int $PenaltySurchargePercent
  * @property array $Amount
- * @property array $PenaltyAmount
+ * @property AbstractValueWithAttr $PenaltyAmount
  * @property string $PaymentDueDate
  * @property SettlementPeriod $SettlementPeriod
  */
@@ -47,7 +48,7 @@ class PaymentTerms extends AbstractComplexType
      * Ödemenin gecikmesi durumunda uygulanacak ceza tutarı numerik olarak girilir.
      * [val => "string", attrs=> [] ]
      */
-    public function setPenaltyAmount(?array $PenaltyAmount)
+    public function setPenaltyAmount(?AbstractValueWithAttr $PenaltyAmount)
     {
         $this->values['PenaltyAmount'] = $PenaltyAmount;
         return $this;
