@@ -15,6 +15,15 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractValueWithAttr;
  */
 class PaymentTerms extends AbstractComplexType
 {
+    protected $values = [
+        "Note"                    => null,
+        'PenaltySurchargePercent' => null,
+        'Amount'                  => null,
+        "PenaltyAmount"           => null,
+        "PaymentDueDate"          => null,
+        "SettlementPeriod"        => null,
+    ];
+
 
     /**
      * Ödeme koşulları ile ilgili açıklama serbest metin olarak girilir.
