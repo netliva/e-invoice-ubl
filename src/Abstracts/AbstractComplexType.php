@@ -40,6 +40,36 @@ abstract class AbstractComplexType
         }
     }
 
+
+    // sınıf klonlanırsa, value içindeki tüm klonlanabilir değerleri klonla
+    public function __clone ()
+    {
+        foreach ($this->values as $key => $value)
+        {
+            if (is_object($value))
+            {
+                if (method_exists($value, "__clone"))
+                {
+                    $this->values[$key] = clone $value;
+                }
+            }
+            else if (is_array($value))
+            {
+                $this->values[$key] = array_map(function($element) {
+                    if (is_object($element) && method_exists($element, "__clone"))
+                    {
+                        return clone $element;
+                    }
+                    else
+                    {
+                        return $element;
+                    }
+                }, $value);
+            }
+        }
+    }
+
+    
     /**
      * __set implementation
      *
