@@ -16,10 +16,19 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractComplexType;
  */
 class AllowanceCharge extends AbstractComplexType
 {
+    protected $values = [
+        'ChargeIndicator'         => null,
+        'AllowanceChargeReason'   => null,
+        'MultiplierFactorNumeric' => null,
+        'SequenceNumeric'         => null,
+        'Amount'                  => null,
+        'BaseAmount'              => null,
+        'PerUnitAmount'           => null,
+    ];
+
     /**
      * Iskonto ise “false”, artırım ise “true” girilir.
      */
-
     public function setChargeIndicator(?bool $ChargeIndicator)
     {
         $this->values['ChargeIndicator'] = $ChargeIndicator;
