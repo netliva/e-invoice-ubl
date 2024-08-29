@@ -14,6 +14,14 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractComplexType;
  */
 class PaymentMeans extends AbstractComplexType
 {
+    protected $values = [
+        'PaymentMeansCode'      => null,
+        'PaymentDueDate'        => null,
+        'PaymentChannelCode'    => null,
+        'InstructionNote'       => null,
+        'PayerFinancialAccount' => null,
+        'PayeeFinancialAccount' => null,
+    ];
 
     /**
      * Ödeme şeklinin kodu girilir. Bu eleman için UN/EDIFACT 4461 Ödeme Çeşitleri Kod Listesi kullanılacaktır.
