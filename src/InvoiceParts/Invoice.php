@@ -55,7 +55,7 @@ class Invoice extends AbstractComplexType
         "Note"                           => [],
         "DocumentCurrencyCode"           => null,
         "LineCountNumeric"               => null,
-        "OrderReference"                 => [],
+        "OrderReference"                 => null,
         "DespatchDocumentReference"      => [],
         "BillingReference"               => [],
         "AdditionalDocumentReference"    => [],
