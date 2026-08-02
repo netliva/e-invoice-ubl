@@ -6,7 +6,9 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractAttrs;
 use Netliva\eInvoiceUBL\Abstracts\AbstractComplexType;
 
 /**
- * @property float $value
+ * @property-read float $value
+ * @property-write float|int|string|null $value  Setter ?float bildiriyor; PHP sayısal
+ *   string'leri otomatik float'a çeviriyor.
  * @property AbstractAttrs $attrs
  */
 class AbstractFloatWithAttr extends AbstractComplexType

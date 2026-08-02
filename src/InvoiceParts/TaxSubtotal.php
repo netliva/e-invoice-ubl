@@ -11,7 +11,7 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractValueWithAttr;
  * @property AbstractFloatWithAttr $TaxAmount
  * @property int $CalculationSequenceNumeric
  * @property AbstractFloatWithAttr $TransactionCurrencyTaxAmount
- * @property int $Percent
+ * @property int|float|null $Percent  KDV/vergi oranı ondalıklı olabilir.
  * @property AbstractFloatWithAttr $BaseUnitMeasure
  * @property AbstractFloatWithAttr $PerUnitAmount
  * @property TaxCategory $TaxCategory
@@ -72,7 +72,11 @@ class TaxSubtotal extends AbstractComplexType
     /**
      * Vergi oranı girilebilecektir.
      */
-    public function setPercent(?int $Percent)
+    /**
+     * Vergi oranı ondalıklı olabilir (ör. %0.5 stopaj). Parametre ?int iken
+     * PHP 8.1+ kayıplı float->int dönüşümünde deprecation verip değeri KESİYORDU.
+     */
+    public function setPercent(int|float|null $Percent)
     {
         $this->values['Percent'] = $Percent;
         return $this;

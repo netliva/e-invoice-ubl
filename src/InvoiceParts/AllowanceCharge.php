@@ -8,7 +8,8 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractComplexType;
  *
  * @property bool $ChargeIndicator Iskonto ise “false”, artırım ise “true” girilir
  * @property string $AllowanceChargeReason Iskonto/ Artırım Nedeni
- * @property string $MultiplierFactorNumeric Iskonto/ Artırım Oranı
+ * @property-read string $MultiplierFactorNumeric Iskonto/ Artırım Oranı
+ * @property-write string|int|float|null $MultiplierFactorNumeric
  * @property int $SequenceNumeric Sıra Numarası
  * @property Amount $Amount Iskonto/ Artırım Tutarı
  * @property BaseAmount $BaseAmount İskonto veya artırımın uygulandığı tutar

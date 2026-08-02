@@ -20,7 +20,7 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractValueWithAttr;
  * @property WithholdingTaxTotal $WithholdingTaxTotal
  * @property Item $Item
  * @property Price $Price
- * @property SubInvoiceLine $SubInvoiceLine
+ * @property SubInvoiceLine|null $SubInvoiceLine  Setter ?SubInvoiceLine; null geçerli.
  */
 class InvoiceLine extends AbstractComplexType
 {

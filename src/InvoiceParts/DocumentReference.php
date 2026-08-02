@@ -7,7 +7,7 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractComplexType;
 /**
  * Referans verilen ya da eklenen belgelere ilişkin bilgiler girilecektir
  *
- * @property string $ID
+ * @property string|null $ID  Setter ?string; null geçerli.
  * @property string $IssueDate
  * @property string $DocumentTypeCode
  * @property string $DocumentType
