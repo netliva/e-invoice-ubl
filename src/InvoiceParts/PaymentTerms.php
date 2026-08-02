@@ -7,7 +7,7 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractValueWithAttr;
 /**
  * Ödeme koşullarının girildiği elemandır
  * @property array $Note
- * @property int $PenaltySurchargePercent
+ * @property int|float|null $PenaltySurchargePercent
  * @property array $Amount
  * @property AbstractValueWithAttr $PenaltyAmount
  * @property string $PaymentDueDate
@@ -37,7 +37,11 @@ class PaymentTerms extends AbstractComplexType
     /**
      * Ödemenin gecikmesi durumunda uygulanacak ceza oranı numerik olarak girilir.
      */
-    public function setPenaltySurchargePercent(?int $PenaltySurchargePercent)
+    /**
+     * Ceza/gecikme yüzdesi ondalıklı olabilir. Parametre ?int iken PHP 8.1+
+     * kayıplı float->int dönüşümünde deprecation verip değeri KESİYORDU.
+     */
+    public function setPenaltySurchargePercent(int|float|null $PenaltySurchargePercent)
     {
         $this->values['PenaltySurchargePercent'] = $PenaltySurchargePercent;
         return $this;

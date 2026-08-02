@@ -7,7 +7,8 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractComplexType;
  * @property string $UBLVersionID = '2.1'
  * @property string $CustomizationID = 'TR1.2'
  * @property string $ProfileID
- * @property string $ID
+ * @property-read string $ID
+ * @property-write string|int|null $ID
  * @property bool $CopyIndicator
  * @property string $UUID
  * @property string $IssueDate
@@ -15,7 +16,8 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractComplexType;
  * @property string $InvoiceTypeCode
  * @property string[] $Note
  * @property string $DocumentCurrencyCode
- * @property string $LineCountNumeric
+ * @property-read string $LineCountNumeric
+ * @property-write string|int|null $LineCountNumeric
  * @property OrderReference $OrderReference
  * @property DespatchDocumentReference $DespatchDocumentReference
  * @property BillingReference[] $BillingReference

@@ -6,7 +6,8 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractValueWithAttr;
 
 /**
  * Belgede geçen mal/hizmete ilişkin bilgilerin girildiği elemandır.
- * @property string $ID
+ * @property-read string $ID
+ * @property-write string|int|null $ID
  * @property array $Note
  * @property AbstractValueWithAttr $InvoicedQuantity
  * @property OrderLineReference $OrderLineReference
