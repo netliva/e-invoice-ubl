@@ -10,11 +10,11 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractValueWithAttr;
  * @property-write string|int|null $ID
  * @property array $Note
  * @property AbstractValueWithAttr $InvoicedQuantity
+ * @property AbstractValueWithAttr $LineExtensionAmount
  * @property OrderLineReference $OrderLineReference
  * @property DespatchLineReference $DespatchLineReference
  * @property ReceiptLineReference $ReceiptLineReference
  * @property Delivery $Delivery
- * @property AbstractValueWithAttr $LineExtensionAmount
  * @property AllowanceCharge[] $AllowanceCharge
  * @property TaxTotal $TaxTotal
  * @property WithholdingTaxTotal $WithholdingTaxTotal
@@ -24,15 +24,17 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractValueWithAttr;
  */
 class InvoiceLine extends AbstractComplexType
 {
+    // DİKKAT — sıra XML eleman sırasıdır; bkz. Invoice::$values üzerindeki not.
+    // Kaynak: UBL-Invoice-2.1.xsd / InvoiceLineType.
     protected $values = [
         'ID'                    => null,
         'Note'                  => null,
         'InvoicedQuantity'      => null,
+        'LineExtensionAmount'   => null,
         'OrderLineReference'    => null,
         'DespatchLineReference' => null,
         'ReceiptLineReference'  => null,
         'Delivery'              => null,
-        'LineExtensionAmount'   => null,
         'AllowanceCharge'       => null,
         'TaxTotal'              => null,
         'WithholdingTaxTotal'   => null,
