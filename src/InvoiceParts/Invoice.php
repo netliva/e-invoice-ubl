@@ -18,69 +18,74 @@ use Netliva\eInvoiceUBL\Abstracts\AbstractComplexType;
  * @property string $DocumentCurrencyCode
  * @property-read string $LineCountNumeric
  * @property-write string|int|null $LineCountNumeric
+ * @property InvoicePeriod $InvoicePeriod
  * @property OrderReference $OrderReference
- * @property DespatchDocumentReference $DespatchDocumentReference
  * @property BillingReference[] $BillingReference
+ * @property DespatchDocumentReference $DespatchDocumentReference
+ * @property OriginatorDocumentReference $OriginatorDocumentReference
  * @property AdditionalDocumentReference[] $AdditionalDocumentReference
  * @property Signature $Signature
  * @property AccountingSupplierParty $AccountingSupplierParty
  * @property AccountingCustomerParty $AccountingCustomerParty
+ * @property BuyerCustomerParty $BuyerCustomerParty
+ * @property TaxRepresentativeParty $TaxRepresentativeParty
+ * @property Delivery $Delivery
  * @property PaymentMeans[] $PaymentMeans
+ * @property PaymentTerms $PaymentTerms
  * @property AllowanceCharge $AllowanceCharge
+ * @property TaxExchangeRate $TaxExchangeRate
  * @property PricingExchangeRate $PricingExchangeRate
+ * @property PaymentExchangeRate $PaymentExchangeRate
+ * @property PaymentAlternativeExchangeRate $PaymentAlternativeExchangeRate
  * @property TaxTotal $TaxTotal
  * @property WithholdingTaxTotal $WithholdingTaxTotal
  * @property LegalMonetaryTotal $LegalMonetaryTotal
- * @property BuyerCustomerParty $BuyerCustomerParty
- * @property Delivery $Delivery
- * @property PaymentTerms $PaymentTerms
- * @property OriginatorDocumentReference $OriginatorDocumentReference
- * @property PaymentAlternativeExchangeRate $PaymentAlternativeExchangeRate
- * @property PaymentExchangeRate $PaymentExchangeRate
- * @property TaxExchangeRate $TaxExchangeRate
- * @property InvoicePeriod $InvoicePeriod
- * @property TaxRepresentativeParty $TaxRepresentativeParty
  * @property InvoiceLine[] $InvoiceLine
  */
 class Invoice extends AbstractComplexType
 {
+    // DİKKAT — bu dizinin SIRASI XML'in eleman sırasıdır (XMLHelper::makeXml()
+    // etiketleri bu diziyi gezerek basar). UBL 2.1 Invoice bir xsd:sequence'tir,
+    // yani sıra bağlayıcıdır: yanlış yerdeki bir eleman GİB/entegratör tarafında
+    // 1160 FAILED_XML_SCHEMA_CHECK ile reddedilir. Sıra, resmi
+    // UBL-Invoice-2.1.xsd içindeki InvoiceType tanımından birebir alınmıştır;
+    // yeni bir eleman eklerken oradaki yerine koy, sona ekleme.
     protected $values = [
         'UBLVersionID'                   => '2.1',
         'CustomizationID'                => 'TR1.2',
-        "ProfileID"                      => null,
-        "ID"                             => null,
-        "CopyIndicator"                  => false,
-        "UUID"                           => null,
-        "IssueDate"                      => null,
-        "IssueTime"                      => null,
-        "InvoiceTypeCode"                => null,
-        "Note"                           => [],
-        "DocumentCurrencyCode"           => null,
-        "LineCountNumeric"               => null,
-        "OrderReference"                 => null,
-        "DespatchDocumentReference"      => [],
-        "BillingReference"               => [],
-        "AdditionalDocumentReference"    => [],
-        "Signature"                      => null,
-        "AccountingSupplierParty"        => null,
-        "AccountingCustomerParty"        => null,
-        "Delivery"                       => null,
-        "PaymentMeans"                   => null,
-        "PaymentTerms"                   => null,
-        "AllowanceCharge"                => null,
-        "PricingExchangeRate"            => null,
-        "TaxTotal"                       => null,
-        "WithholdingTaxTotal"            => null,
-        "LegalMonetaryTotal"             => null,
-        "BuyerCustomerParty"             => null,
-        "OriginatorDocumentReference"    => null,
-        "PaymentAlternativeExchangeRate" => null,
-        "PaymentExchangeRate"            => null,
-        "TaxExchangeRate"                => null,
-        "InvoicePeriod"                  => null,
-        "TaxRepresentativeParty"         => null,
-        "InvoiceLine"                    => null,
-
+        'ProfileID'                      => null,
+        'ID'                             => null,
+        'CopyIndicator'                  => false,
+        'UUID'                           => null,
+        'IssueDate'                      => null,
+        'IssueTime'                      => null,
+        'InvoiceTypeCode'                => null,
+        'Note'                           => [],
+        'DocumentCurrencyCode'           => null,
+        'LineCountNumeric'               => null,
+        'InvoicePeriod'                  => null,
+        'OrderReference'                 => null,
+        'BillingReference'               => [],
+        'DespatchDocumentReference'      => [],
+        'OriginatorDocumentReference'    => null,
+        'AdditionalDocumentReference'    => [],
+        'Signature'                      => null,
+        'AccountingSupplierParty'        => null,
+        'AccountingCustomerParty'        => null,
+        'BuyerCustomerParty'             => null,
+        'TaxRepresentativeParty'         => null,
+        'Delivery'                       => null,
+        'PaymentMeans'                   => null,
+        'PaymentTerms'                   => null,
+        'AllowanceCharge'                => null,
+        'TaxExchangeRate'                => null,
+        'PricingExchangeRate'            => null,
+        'PaymentExchangeRate'            => null,
+        'PaymentAlternativeExchangeRate' => null,
+        'TaxTotal'                       => null,
+        'WithholdingTaxTotal'            => null,
+        'LegalMonetaryTotal'             => null,
+        'InvoiceLine'                    => null,
     ];
     public function setUBLVersionID(?string $UBLVersionID)
     {
